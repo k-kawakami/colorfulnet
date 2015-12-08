@@ -6,6 +6,16 @@ Enjoy colorful word representation!!
 - [Theano 7.0](http://deeplearning.net/software/theano/install.html)
 - A recent version of NumPy and SciPy
 
+If you use virtualenv
+
+```bash
+    cd ~/
+    virtualenv color-test
+    source ~/color-test/bin/activate
+    cd /path/to/color_turing_test
+    pip install -r requirements.txt
+```
+
 ## Getting Started
 Provide text file which contains list of words (-f). To visualize color, use html output with -ht = 1.
 
