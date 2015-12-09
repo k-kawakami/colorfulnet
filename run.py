@@ -32,15 +32,15 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Give Me Conll data.')
     parser.add_argument('-f', type=str, help='provide text file')
     parser.add_argument('-ht', type=int, default=0, help='specify ourput wormat. text: 0, html: 1')
-    parser.add_argument('-l',  type=int, default=0, help='to get lab result, set 1')
+    parser.add_argument('-lab',  type=int, default=0, help='to get lab result, set 1')
     parser.add_argument('-c',  type=int, default=0, help='to run character by character set 1')
     args = parser.parse_args()
 
     if not args.ht:
         print 'word, R, G, B, OOV'
 
-    if args.l == 1:
-        assert args.ht == 0, 'Lab output is anly available for text output, set -ht = 0'
+    if args.lab == 1:
+        assert args.ht == 0, 'Lab output is anly available for text output, set -rgb = 0'
 
     for line in open(args.f):
         word = line.strip()
@@ -56,11 +56,11 @@ if __name__ == '__main__':
 
             if args.ht:
                 if err:
-                    print "<span><span style='font-weight: bold; color:rgb({},{},{})'>{}</span> (There were out-of-character)</span>".format(rgb[0], rgb[1], rgb[2], word) 
+                    print "<p><span style='font-weight: bold; color:rgb({},{},{})'>{}</span> (There were out-of-character)</p>".format(rgb[0], rgb[1], rgb[2], word) 
                 else:
-                    print "<span style='font-weight: bold; color:rgb({},{},{})'>{} </span>".format(rgb[0], rgb[1], rgb[2], word) 
+                    print "<p style='font-weight: bold; color:rgb({},{},{})'>{} </p>".format(rgb[0], rgb[1], rgb[2], word) 
             else:
-                if args.l:
+                if args.lab:
                     print "{},{},{},{},{}".format(word, lab[0], lab[1], lab[2], err) 
                 else:
                     print "{},{},{},{},{}".format(word, rgb[0], rgb[1], rgb[2], err) 
