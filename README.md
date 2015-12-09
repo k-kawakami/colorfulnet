@@ -23,6 +23,13 @@ Provide text file which contains list of words (-f). To visualize color, use htm
     python run.py -f example_data/example.txt -ht 1 > example.html
 ```
 
+## Character Base Model
+If you want to see what's going on in character base model, try to look colors character by character.
+
+```bash 
+    python run.py -f example_data/example.txt -ht 1 -c 1 > example.html
+```
+
 ## OOV
 The code produce color even your input have characters which are not in training data.
 It replace unknown character with '-' and predict color for it.

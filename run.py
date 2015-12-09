@@ -32,6 +32,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Give Me Conll data.')
     parser.add_argument('-f', type=str, help='provide text file')
     parser.add_argument('-ht', type=int, default=0, help='specify ourput wormat. text: 0, html: 1')
+    parser.add_argument('-c',  type=int, default=0, help='if you want to run character by character set 1')
     args = parser.parse_args()
 
     if not args.ht:
@@ -41,12 +42,18 @@ if __name__ == '__main__':
         word = line.strip()
         if len(word) == 0: continue
 
-        [r,g,b], err  = char2rgb(function, color2index, word) 
-
-        if args.ht:
-            if err:
-                print "<p><span style='font-weight: bold; color:rgb({},{},{})'>{}</span> (There were out-of-character)</p>".format(r, g, b, word) 
-            else:
-                print "<p style='font-weight: bold; color:rgb({},{},{})'>{}</p>".format(r, g, b, word) 
+        if args.c:
+            words = [ word[:i] for i in range(1, len(word)+1) ]
         else:
-            print "{},{},{},{},{}".format(word, r, g, b, err) 
+            words = [word]
+
+        for word in words:
+            [r,g,b], err  = char2rgb(function, color2index, word) 
+
+            if args.ht:
+                if err:
+                    print "<p><span style='font-weight: bold; color:rgb({},{},{})'>{}</span> (There were out-of-character)</p>".format(r, g, b, word) 
+                else:
+                    print "<p style='font-weight: bold; color:rgb({},{},{})'>{}</p>".format(r, g, b, word) 
+            else:
+                print "{},{},{},{},{}".format(word, r, g, b, err) 
