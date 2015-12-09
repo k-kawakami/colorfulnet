@@ -5,6 +5,7 @@ Enjoy colorful word representation!!
 
 - [Theano 7.0](http://deeplearning.net/software/theano/install.html)
 - A recent version of NumPy and SciPy
+- Beautiful Soup, Requests (for Web demo)
 
 If you use virtualenv
 
