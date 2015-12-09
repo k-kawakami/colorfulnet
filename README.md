@@ -30,6 +30,15 @@ If you want to see what's going on in character base model, try to look colors c
     python run.py -f example_data/example.txt -ht 1 -c 1 > example.html
 ```
 
+## Try some colorfule article?? 
+The code download an article and replace Title and paragraphs (<p>) with colorful string. Since the crawler is not carefully written, it will fail for some websites.
+
+If you want to have some examples, please check example_result folder.
+
+```bash
+    python web.py -f http://greatist.com/health/super-berry-quinoa-salad > example_result/recipie.html 
+```
+
 ## OOV
 The code produce color even your input have characters which are not in training data.
 It replace unknown character with '-' and predict color for it.

@@ -3,7 +3,6 @@ import cPickle
 import theano
 from lab import *
 
-import argparse
 
 color2index = cPickle.load(open('pkl/char2id.pkl'))
 function = cPickle.load(open('pkl/function.pkl'))
@@ -52,8 +51,8 @@ if __name__ == '__main__':
 
             if args.ht:
                 if err:
-                    print "<p><span style='font-weight: bold; color:rgb({},{},{})'>{}</span> (There were out-of-character)</p>".format(r, g, b, word) 
+                    print "<span><span style='font-weight: bold; color:rgb({},{},{})'>{}</span> (There were out-of-character)</span>".format(r, g, b, word) 
                 else:
-                    print "<p style='font-weight: bold; color:rgb({},{},{})'>{}</p>".format(r, g, b, word) 
+                    print "<span style='font-weight: bold; color:rgb({},{},{})'>{} </span>".format(r, g, b, word) 
             else:
                 print "{},{},{},{},{}".format(word, r, g, b, err) 
