@@ -31,8 +31,8 @@ If you want to see what's going on in character base model, try to look colors c
     python run.py -f example_data/example.txt -ht 1 -c 1 > example.html
 ```
 
-## Try some colorfule article?? 
-The code download an article and replace Title and paragraphs (<p>) with colorful string. Since the crawler is not carefully written, it will fail for some websites.
+## Colorful document
+The code download an article and replace Title and paragraphs with colorful string. Since the crawler is not carefully written, it will fail for some websites.
 
 If you want to have some examples, please check example_result folder.
 
