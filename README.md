@@ -37,7 +37,7 @@ The code download an article and replace Title and paragraphs with colorful stri
 If you want to have some examples, please check example_result folder.
 
 ```bash
-    python web.py -f http://greatist.com/health/super-berry-quinoa-salad > example_result/recipie.html 
+    python web.py -f http://greatist.com/health/super-berry-quinoa-salad > example_result/recipe.html 
 ```
 
 ## OOV
