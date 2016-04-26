@@ -5,12 +5,12 @@ import theano
 from lab import *
 
 
-color2index = cPickle.load(open('pkl/char2id_submission.pkl'))
-function = cPickle.load(open('pkl/bilstm.pkl'))
+#color2index = cPickle.load(open('pkl/char2id_submission.pkl'))
+#function = cPickle.load(open('pkl/bilstm.pkl'))
+[color2index, function] = cPickle.load(open('pkl/lstm_1926_deploy.pkl'))
+characters = set(color2index.keys())
 
 def char2rgb(function, color2index, word):
-    characters = set(color2index.keys())
-
     chars_encoded, err = [], False
 
     for c in list(word):
@@ -20,10 +20,8 @@ def char2rgb(function, color2index, word):
             chars_encoded.append(color2index['-'])
             err = True 
 
-
-    pred = (function([chars_encoded])[0] - numpy.array([-0.00059524,  0.467565  ,  0.53391187])) / numpy.array([ 0.01002319,  0.00543107,  0.0049498 ])
-    lab  = map(float, pred) 
-    rgb  = lab2rgb(pred)
+    lab = function([chars_encoded], 0)[-1].flatten()
+    rgb  = lab2rgb(lab)
     return rgb, lab, err
 
 

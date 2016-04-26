@@ -3,7 +3,7 @@ Enjoy colorful word representation!!
 
 ## Dependencies
 
-- [Theano 7.0](http://deeplearning.net/software/theano/install.html)
+- [Theano 8.0](http://deeplearning.net/software/theano/install.html)
 - A recent version of NumPy and SciPy
 - Beautiful Soup, Requests (for Web demo)
 
